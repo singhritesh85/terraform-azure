@@ -61,8 +61,8 @@ resource "azurerm_linux_web_app" "webapp_linuxcontainer" {
   site_config {
     always_on = true
     application_stack {
-      docker_image_name = "mcr.microsoft.com/appsvc/staticsite:latest"
-#      docker_registry_url = ""
+      docker_image_name = "appsvc/staticsite:latest"
+      docker_registry_url = "https://mcr.microsoft.com"
 #      docker_registry_username = ""
 #      docker_registry_password = ""
     }
