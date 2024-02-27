@@ -88,8 +88,7 @@ resource "azurerm_linux_virtual_machine_scale_set" "vm_scale_set" {
   }
 
   boot_diagnostics {
-    enabled = true
-    storage_uri = ""
+    storage_account_uri = ""
   }
 
   tags = {
