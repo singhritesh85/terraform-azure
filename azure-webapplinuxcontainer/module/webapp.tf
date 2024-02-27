@@ -79,6 +79,7 @@ resource "azurerm_linux_web_app" "webapp_linuxcontainer" {
   app_settings = {
     "APPINSIGHTS_INSTRUMENTATIONKEY"             = "${azurerm_application_insights.webapp_insight.instrumentation_key}"
     "APPLICATIONINSIGHTS_CONNECTION_STRING"      = "${azurerm_application_insights.webapp_insight.connection_string}"
+    "WEBSITES_CONTAINER_START_TIME_LIMIT"        = "30"
     "ApplicationInsightsAgent_EXTENSION_VERSION" = "~3"
   }
 }
