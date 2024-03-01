@@ -173,6 +173,9 @@ resource "azurerm_network_security_group" "azure_nsg1" {
   tags = {
     environment = var.env
   }
+
+  depends_on = [azurerm_virtual_network_gateway.vnetgtw1, azurerm_virtual_network_gateway.vnetgtw2, azurerm_virtual_network_gateway_connection.connection1, azurerm_virtual_network_gateway_connection.connection2]  
+
 }
 
 ######## NSG has been attached to subnet, However it is also possible to attach NSG to Network Interface(NIC) ###########
@@ -180,6 +183,9 @@ resource "azurerm_network_security_group" "azure_nsg1" {
 resource "azurerm_subnet_network_security_group_association" "nsg1_subnet_attachent" {
   subnet_id                 = azurerm_subnet.vnet1_subnet.id
   network_security_group_id = azurerm_network_security_group.azure_nsg1.id
+
+  depends_on = [azurerm_virtual_network_gateway.vnetgtw1, azurerm_virtual_network_gateway.vnetgtw2, azurerm_virtual_network_gateway_connection.connection1, azurerm_virtual_network_gateway_connection.connection2]
+
 }
 
 ############################################## Create NSG 2 ######################################################
@@ -215,6 +221,9 @@ resource "azurerm_network_security_group" "azure_nsg2" {
   tags = {
     environment = var.env
   }
+
+  depends_on = [azurerm_virtual_network_gateway.vnetgtw1, azurerm_virtual_network_gateway.vnetgtw2, azurerm_virtual_network_gateway_connection.connection1, azurerm_virtual_network_gateway_connection.connection2]
+
 }
 
 ######## NSG has been attached to subnet, However it is also possible to attach NSG to Network Interface(NIC) ###########
@@ -222,6 +231,9 @@ resource "azurerm_network_security_group" "azure_nsg2" {
 resource "azurerm_subnet_network_security_group_association" "nsg2_subnet_attachent" {
   subnet_id                 = azurerm_subnet.vnet2_subnet.id
   network_security_group_id = azurerm_network_security_group.azure_nsg2.id
+
+  depends_on = [azurerm_virtual_network_gateway.vnetgtw1, azurerm_virtual_network_gateway.vnetgtw2, azurerm_virtual_network_gateway_connection.connection1, azurerm_virtual_network_gateway_connection.connection2]
+
 }
 
 ################################## Public VM1 in VNet1 #####################################################
@@ -238,6 +250,9 @@ resource "azurerm_public_ip" "public_ip1" {
   tags = {
     environment = var.env
   }
+
+  depends_on = [azurerm_virtual_network_gateway.vnetgtw1, azurerm_virtual_network_gateway.vnetgtw2, azurerm_virtual_network_gateway_connection.connection1, azurerm_virtual_network_gateway_connection.connection2]
+
 }
 
 resource "azurerm_network_interface" "vnet_interface1" {
@@ -255,6 +270,9 @@ resource "azurerm_network_interface" "vnet_interface1" {
   tags = {
     environment = var.env
   }
+
+  depends_on = [azurerm_virtual_network_gateway.vnetgtw1, azurerm_virtual_network_gateway.vnetgtw2, azurerm_virtual_network_gateway_connection.connection1, azurerm_virtual_network_gateway_connection.connection2]
+
 }
 
 resource "azurerm_virtual_machine" "azure_vm1" {
@@ -310,6 +328,9 @@ resource "azurerm_virtual_machine" "azure_vm1" {
   tags = {
     environment = var.env
   }
+
+  depends_on = [azurerm_virtual_network_gateway.vnetgtw1, azurerm_virtual_network_gateway.vnetgtw2, azurerm_virtual_network_gateway_connection.connection1, azurerm_virtual_network_gateway_connection.connection2]
+
 }
 
 ##################################################### Private VM2 in VNet1 ###############################################################
@@ -328,6 +349,9 @@ resource "azurerm_network_interface" "vnet_interface2" {
   tags = {
     environment = var.env
   }
+
+  depends_on = [azurerm_virtual_network_gateway.vnetgtw1, azurerm_virtual_network_gateway.vnetgtw2, azurerm_virtual_network_gateway_connection.connection1, azurerm_virtual_network_gateway_connection.connection2]
+
 }
 
 resource "azurerm_virtual_machine" "azure_vm2" {
@@ -383,6 +407,9 @@ resource "azurerm_virtual_machine" "azure_vm2" {
   tags = {
     environment = var.env
   }
+
+  depends_on = [azurerm_virtual_network_gateway.vnetgtw1, azurerm_virtual_network_gateway.vnetgtw2, azurerm_virtual_network_gateway_connection.connection1, azurerm_virtual_network_gateway_connection.connection2]
+
 }
 
 ##################################################### Public VM3 in VNet2 #############################################################
@@ -399,6 +426,9 @@ resource "azurerm_public_ip" "public_ip2" {
   tags = {
     environment = var.env
   }
+
+  depends_on = [azurerm_virtual_network_gateway.vnetgtw1, azurerm_virtual_network_gateway.vnetgtw2, azurerm_virtual_network_gateway_connection.connection1, azurerm_virtual_network_gateway_connection.connection2]
+
 }
 
 resource "azurerm_network_interface" "vnet_interface3" {
@@ -416,6 +446,9 @@ resource "azurerm_network_interface" "vnet_interface3" {
   tags = {
     environment = var.env
   }
+
+  depends_on = [azurerm_virtual_network_gateway.vnetgtw1, azurerm_virtual_network_gateway.vnetgtw2, azurerm_virtual_network_gateway_connection.connection1, azurerm_virtual_network_gateway_connection.connection2]
+
 }
 
 resource "azurerm_virtual_machine" "azure_vm3" {
@@ -471,6 +504,9 @@ resource "azurerm_virtual_machine" "azure_vm3" {
   tags = {
     environment = var.env
   }
+
+  depends_on = [azurerm_virtual_network_gateway.vnetgtw1, azurerm_virtual_network_gateway.vnetgtw2, azurerm_virtual_network_gateway_connection.connection1, azurerm_virtual_network_gateway_connection.connection2]
+
 }
 
 ########################################## Private VM4 in VNet2 ################################################################
@@ -490,6 +526,9 @@ resource "azurerm_network_interface" "vnet_interface4" {
   tags = {
     environment = var.env
   }
+
+  depends_on = [azurerm_virtual_network_gateway.vnetgtw1, azurerm_virtual_network_gateway.vnetgtw2, azurerm_virtual_network_gateway_connection.connection1, azurerm_virtual_network_gateway_connection.connection2] 
+
 }
 
 resource "azurerm_virtual_machine" "azure_vm4" {
@@ -545,4 +584,7 @@ resource "azurerm_virtual_machine" "azure_vm4" {
   tags = {
     environment = var.env
   }
+
+  depends_on = [azurerm_virtual_network_gateway.vnetgtw1, azurerm_virtual_network_gateway.vnetgtw2, azurerm_virtual_network_gateway_connection.connection1, azurerm_virtual_network_gateway_connection.connection2]
+
 }
