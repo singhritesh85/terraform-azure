@@ -122,7 +122,7 @@ resource "azurerm_kubernetes_cluster" "aks_cluster" {
   
   default_node_pool {
     name                 = "agentpool"
-    vm_size              = "Standard_B2s"             ##Standard_DS2_v2
+    vm_size              = "Standard_B2ms"                 ###Standard_B2s             ##Standard_DS2_v2
     orchestrator_version = var.kubernetes_version
     zones                = [1, 2, 3]
 #    enable_node_public_ip = true             ###  Will be used in Public AKS Cluster.
@@ -226,7 +226,7 @@ resource "azurerm_kubernetes_cluster_node_pool" "autoscale_node_pool" {
   kubernetes_cluster_id        = azurerm_kubernetes_cluster.aks_cluster.id
   zones                        = [1, 2, 3]
   orchestrator_version = var.kubernetes_version
-  vm_size                      = "Standard_B2s"
+  vm_size                      = "Standard_B2ms"                 ###Standard_B2s
   mode                         = "User"          ### You can select between System and User
 # enable_node_public_ip = true             ###  Will be used in Public AKS Cluster.
   enable_auto_scaling          = true
