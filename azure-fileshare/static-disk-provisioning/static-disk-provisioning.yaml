@@ -14,7 +14,7 @@ spec:
   storageClassName: managed-csi
   csi:
     driver: disk.csi.azure.com
-    volumeHandle: /subscriptions/51283936-af44-49c6-9a24-f1cbdc17915d/resourcegroups/aks-noderg/providers/microsoft.compute/disks/demo-1
+    volumeHandle: /subscriptions/51XXXXX6-af44-XXX-9a24-XXXXXX17915d/resourcegroups/aks-noderg/providers/microsoft.compute/disks/demo-1
     volumeAttributes:
       fsType: ext4
 ---
