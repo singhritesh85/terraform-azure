@@ -1,16 +1,19 @@
 create AKS Cluster using the terraform script present in the directory **azure-aks-withoutmanagedprometheusgrafana**
 <br>
-
-
-
-
-
-
-
-
-
-
 <br />
+
+<br>
+<br />
+
+<br>
+<br />
+
+<br>
+<br />
+
+<br>
+<br />
+
 
 # For static smb fileshare create the secret as written below and use the secret name in the yaml file static-smb-fileshare.yaml.
 ```
