@@ -1,0 +1,71 @@
+kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:
+  name: dynamic-sc
+provisioner: disk.csi.azure.com
+parameters:
+  skuname: Premium_ZRS
+  maxShares: "3"       ### It is possible to configure the number of attachments with maxShares property in the StorageClass.
+  cachingMode: None
+allowVolumeExpansion: true
+reclaimPolicy: Delete
+volumeBindingMode: Immediate
+---
+apiVersion: snapshot.storage.k8s.io/v1
+kind: VolumeSnapshotClass
+metadata:
+  name: disk-csi-vsc
+driver: disk.csi.azure.com
+deletionPolicy: Delete
+parameters:
+  incremental: "true"
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: pvc-csi-disk
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 4Gi
+  volumeMode: Block
+  storageClassName: dynamic-sc
+---
+apiVersion: snapshot.storage.k8s.io/v1
+kind: VolumeSnapshot
+metadata:
+  name: disk-volume-snapshot
+spec:
+  volumeSnapshotClassName: disk-csi-vsc
+  source:
+    persistentVolumeClaimName: pvc-csi-disk
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: nginx
+  name: nginx
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+      name: nginx
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:latest
+          volumeDevices:
+            - name: mydisk
+              devicePath: /dev/sdx
+      volumes:
+        - name: mydisk
+          persistentVolumeClaim:
+            claimName: pvc-csi-disk
