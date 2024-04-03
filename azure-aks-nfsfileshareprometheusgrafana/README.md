@@ -10,6 +10,6 @@ The variable k8s_management_node_vnet represents the **VNet** of Terraform-Serve
 The variable k8s_management_node_vnet_id represents the **Resource ID** of Terraform-Server of k8s-management-node's **vnet**.
 ```
 
-3. To create the cluster run the command **terraform apply -auto-approve** from the aks directory.
+2. To create the cluster run the command **terraform apply -auto-approve** from the aks directory.
 
-4. To desytoy the cluster run the shell script **destroy-cluster.sh** from the aks director. 
+3. To desytoy the cluster run the shell script **destroy-cluster.sh** from the aks director. 
