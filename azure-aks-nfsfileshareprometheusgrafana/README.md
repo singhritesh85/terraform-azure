@@ -3,11 +3,11 @@
 (a) k8s_management_node_rg
 (b) k8s_management_node_vnet
 (c) k8s_management_node_vnet_id
-```
+<br> <br/>
 The variable k8s_management_node_rg represents the Resource Group of Terraform-Server or k8s-management-node's **vnet**.
 The variable k8s_management_node_vnet represents the **VNet** of Terraform-Server or k8s-management-node.
 The variable k8s_management_node_vnet_id represents the **Resource ID** of Terraform-Server of k8s-management-node's **vnet**.
-
+```
 
 3. To create the cluster run the command **terraform apply -auto-approve** from the aks directory.
 
