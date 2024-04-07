@@ -3,5 +3,8 @@ To create Application Gateway Ingress Controller make sure the Managed Identity 
 (b) Contributor access for the Application Ingress Controller.
 <br> <br/>
 ![image](https://github.com/singhritesh85/terraform-azure/assets/56765895/7380c694-81bd-43dd-83be-61c45d952783)
+<br> <br/>
+In this terraform script it has been achieved using as written below
+![image](https://github.com/singhritesh85/terraform-azure/assets/56765895/1f158295-c45b-4663-b081-1922b199881b)
 
 
