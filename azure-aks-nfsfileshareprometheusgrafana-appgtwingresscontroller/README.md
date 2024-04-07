@@ -1,6 +1,6 @@
 To create Application Gateway Ingress Controller make sure the Managed Identity **ingressapplicationgateway-aks-cluster** sholud have below accesses
 ```
-(a) At least Read access for the resource group in which Application Ingress Controller exists.
+(a) At least Reader access for the resource group in which Application Ingress Controller exists.
 (b) Contributor access for the Application Ingress Controller.
 ```
 <br> <br/>
