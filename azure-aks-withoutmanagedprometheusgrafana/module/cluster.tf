@@ -76,7 +76,7 @@ resource "azurerm_kubernetes_cluster" "aks_cluster" {
     type                 = "VirtualMachineScaleSets"
     vnet_subnet_id       = azurerm_subnet.aks_subnet.id
     upgrade_settings {
-      max_surge = "10%"
+      max_surge = "50%"       ### Percentage or maximum number of nodes which will be added to the node pool while performing an upgrade. 
     }
     node_labels = {
       "nodepool-type"    = "system"
@@ -180,7 +180,7 @@ resource "azurerm_kubernetes_cluster_node_pool" "autoscale_node_pool" {
 #  type                 = "VirtualMachineScaleSets"
   vnet_subnet_id       = azurerm_subnet.aks_subnet.id
   upgrade_settings {
-    max_surge = "10%"
+    max_surge = "50%"       ### Percentage or maximum number of nodes which will be added to the node pool while performing an upgrade. 
   }
   node_labels = {
     "nodepool-type"    = "User"
