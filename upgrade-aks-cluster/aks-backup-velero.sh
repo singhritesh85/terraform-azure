@@ -1,6 +1,6 @@
 #!/bin/bash
 
-AZURE_STORAGE_ACCOUNT="velero-backup2024"
+AZURE_STORAGE_ACCOUNT="velerobackup2024"
 REGION="eastus"
 AZURE_RESOURCE_GROUP="velero-rg"
 SKU="Standard_GRS"
