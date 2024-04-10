@@ -1,5 +1,5 @@
 # Upgrade AKS Cluster 
-**Before upgradation of AKS Cluster check Pod Disruption Budget. However it is Application owner's responsibility to implement Pod Disruption Budget.**
+**Before upgradation of AKS Cluster check Pod Disruption Budget. However it is Application owner's responsibility to get Pod Disruption Budget implemented.**
 ```
 kubernetes version = [major].[minor].[patch]
 ```
