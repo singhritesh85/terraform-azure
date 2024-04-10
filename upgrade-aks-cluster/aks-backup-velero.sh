@@ -28,7 +28,7 @@ az storage container create -n $BLOB_CONTAINER --public-access off --account-nam
 az ad sp create-for-rbac --name velero-backup --role Contributor --scopes /subscriptions/$AZURE_SUBSCRIPTION_ID > sp.json
 AZURE_TENANT_ID=`tail -2 sp.json| head -1| cut -d ":" -f2| | sed "s/\"//g"`
 AZURE_CLIENT_ID=`head -2 sp.json|tail -1 |cut -d ":" -f2| sed 's/.$//'| tr -d ' '| sed "s/\"//g"`
-AZURE_CLIENT_PASSWORD=`tail -3| head -1| cut -d ":" -f2| sed 's/.$//'| tr -d ' '| sed "s/\"//g"`
+AZURE_CLIENT_PASSWORD=`tail -3 sp.json| head -1| cut -d ":" -f2| sed 's/.$//'| tr -d ' '| sed "s/\"//g"`
 
 echo -e "AZURE_SUBSCRIPTION_ID=$AZURE_SUBSCRIPTION_ID\nAZURE_TENANT_ID=$AZURE_TENANT_ID\nAZURE_CLIENT_ID=$AZURE_CLIENT_ID\nAZURE_CLIENT_SECRET=$AZURE_CLIENT_PASSWORD\nAZURE_RESOURCE_GROUP=$AZURE_RESOURCE_GROUP" > ./credentials-velero
 
