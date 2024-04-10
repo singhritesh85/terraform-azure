@@ -26,7 +26,7 @@ az storage container create -n $BLOB_CONTAINER --public-access off --account-nam
 
 ############## Create Service Principle and use it for velero backup ###############
 az ad sp create-for-rbac --name velero-backup --role Contributor --scopes /subscriptions/$AZURE_SUBSCRIPTION_ID > sp.json
-AZURE_TENANT_ID=`tail -2 sp.json| head -1| cut -d ":" -f2| | sed "s/\"//g"`
+AZURE_TENANT_ID=`tail -2 sp.json| head -1| cut -d ":" -f2| sed "s/\"//g"`
 AZURE_CLIENT_ID=`head -2 sp.json|tail -1 |cut -d ":" -f2| sed 's/.$//'| tr -d ' '| sed "s/\"//g"`
 AZURE_CLIENT_PASSWORD=`tail -3 sp.json| head -1| cut -d ":" -f2| sed 's/.$//'| tr -d ' '| sed "s/\"//g"`
 
