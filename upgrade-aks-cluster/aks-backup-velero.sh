@@ -4,7 +4,7 @@ AZURE_STORAGE_ACCOUNT="velerobackup2024"
 REGION="eastus"
 AZURE_RESOURCE_GROUP="velero-rg"
 SKU="Standard_GRS"
-BLOB_CONTAINER= "velero"
+BLOB_CONTAINER="velero"
 #AZURE_SUBSCRIPTION_ID=""  ### You can provide your desired azure subscription here and install the velero server component, in this shell script I am using the current Azure Subscription Id.
 
 AZURE_SUBSCRIPTION_ID=`az account show |head -4 |tail -1 |cut -d ":" -f2| sed 's/.$//'| tr -d ' '| sed "s/\"//g"`       ### I am using the current Azure Subscription Id. In case you want to provide another subscription ID then comment this line, uncomment above line and provide the desired subscription Id.
