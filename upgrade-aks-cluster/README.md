@@ -1,5 +1,5 @@
 # Upgrade AKS Cluster 
-**Before upgradation of AKS Cluster check Pod Disruption Budget. However it is completely Application owner's responsibility to implement Pod Disruption Budget.**
+**Before upgradation of AKS Cluster check Pod Disruption Budget. However it is Application owner's responsibility to implement Pod Disruption Budget.**
 
 1. Create an AKS Cluster using the terraform script present in my GitHub Repo https://github.com/singhritesh85/terraform-azure and inside the directory **azure-aks-withoutmanagedprometheusgrafana**.
 2. Take the backup of Aks cluster using velero with the help of shell script aks-backup-velero.sh. I have used velero CLI to install the velero server.
