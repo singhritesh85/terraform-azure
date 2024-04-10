@@ -22,7 +22,7 @@ az group create --location $REGION --name $AZURE_RESOURCE_GROUP
 az storage account create --name $AZURE_STORAGE_ACCOUNT --resource-group $AZURE_RESOURCE_GROUP --sku $SKU --encryption-services blob --https-only true --kind BlobStorage --access-tier Hot --location eastus --min-tls-version TLS1_2
 
 ######################### Create Blob Container ####################################
-az storage container create -n $BLOB_CONTAINER --public-access off --account-name $AZURE_STORAGE_ACCOUNT_ID
+az storage container create -n $BLOB_CONTAINER --public-access off --account-name $AZURE_STORAGE_ACCOUNT
 
 ############## Create Service Principle and use it for velero backup ###############
 az ad sp create-for-rbac --name velero-backup --role Contributor --scopes /subscriptions/$AZURE_SUBSCRIPTION_ID > sp.json
