@@ -69,6 +69,7 @@ resource "azurerm_kubernetes_cluster" "aks_cluster" {
     enable_auto_scaling  = true
     max_count            = 1
     min_count            = 1
+    node_count           = 1
     max_pods             = 110
     os_disk_type         = "Managed"
     os_disk_size_gb      = 30
@@ -172,6 +173,7 @@ resource "azurerm_kubernetes_cluster_node_pool" "autoscale_node_pool" {
   enable_auto_scaling          = true
   max_count            = 1
   min_count            = 1
+  node_count           = 1
   max_pods             = 110
   os_disk_type         = "Managed"
   os_disk_size_gb      = 30  
