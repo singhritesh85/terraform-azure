@@ -35,3 +35,7 @@ echo -e "AZURE_SUBSCRIPTION_ID=$AZURE_SUBSCRIPTION_ID\nAZURE_TENANT_ID=$AZURE_TE
 ######################## Install velero server component ###########################
 velero install --provider azure --plugins velero/velero-plugin-for-microsoft-azure:v1.4.0 --bucket $BLOB_CONTAINER --secret-file ./credentials-velero --backup-location-config resourceGroup=$AZURE_RESOURCE_GROUP,storageAccount=$AZURE_STORAGE_ACCOUNT,subscriptionId=$AZURE_SUBSCRIPTION_ID --snapshot-location-config apiTimeout=5m,resourceGroup=$AZURE_RESOURCE_GROUP,subscriptionId=$AZURE_SUBSCRIPTION_ID --use-restic
 
+########################### Create backup using velero #############################
+velero backup create demo    ### Take full backup of AKS cluster
+sleep 10
+velero backup get            ### List the velero back
