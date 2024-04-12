@@ -7,7 +7,9 @@ Pod disruption budget makes minimum number of pods to be available in all the co
                          ![image](https://github.com/singhritesh85/terraform-azure/assets/56765895/cc9c5e66-5959-4fb2-8dce-cb19bea1e9b2)
 <br> <br/>
 Pod disruption budget has three major components
+```
 (a) Selector (Selector is used to specify which set of Pods PDB will be applied)
 (b) minAvailable
 (c) maxUnavailable (available in Kubernetes 1.7 and higher)
+```
 while applying PDB you can select one in between minAvailable and maxUnavailable.
