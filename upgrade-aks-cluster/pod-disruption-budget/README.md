@@ -13,3 +13,4 @@ Pod disruption budget has three major components
 (c) maxUnavailable (available in Kubernetes 1.7 and higher)
 ```
 while applying PDB you can select one in between minAvailable and maxUnavailable.
+In this example I have created two pods(using replicas: 2) and with the selector (app: nginx). 
