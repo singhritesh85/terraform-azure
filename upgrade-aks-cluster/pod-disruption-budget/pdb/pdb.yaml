@@ -1,1 +1,9 @@
-
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: project1-pdb
+spec:
+  selector:
+    matchLabels:
+      app: zookeeper
+  minAvailable: 33%
