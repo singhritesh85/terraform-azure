@@ -14,4 +14,4 @@ Pod disruption budget has three major components
 ```
 while applying PDB you can select one in between minAvailable and maxUnavailable.
 <br> <br/>
-In this example I have created two pods(using replicas: 2) and with the selector (app: nginx). 
+In this example I have created two pods(using replicas: 2) and with the selector (app: nginx). Pod disruption budget is created with minimum 33% pods always be available. 
