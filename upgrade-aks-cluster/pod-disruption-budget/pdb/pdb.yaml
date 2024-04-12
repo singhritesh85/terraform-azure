@@ -6,5 +6,5 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: zookeeper
+      app: nginx
   minAvailable: 33%
