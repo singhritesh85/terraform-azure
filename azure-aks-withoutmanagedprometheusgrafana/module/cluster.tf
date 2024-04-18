@@ -59,6 +59,7 @@ resource "azurerm_kubernetes_cluster" "aks_cluster" {
   sku_tier            = "Standard"
   private_cluster_enabled = true
   azure_policy_enabled = true
+  azure_rbac_enabled   = true
   
   default_node_pool {
     name                 = "agentpool"
