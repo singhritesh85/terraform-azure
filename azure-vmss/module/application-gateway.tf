@@ -99,7 +99,7 @@ resource "azurerm_application_gateway" "application_gateway" {
   # SSL Certificate Block
   ssl_certificate {
     name = "${var.prefix}-certificate"
-    password = "Luvubab@123"
+    password = "Dexter@123"
     data = filebase64("mykey.pfx")
   }
 
